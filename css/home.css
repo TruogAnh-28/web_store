@@ -1,0 +1,31 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 30px;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; */
+  }
+  
+  .form-buy-now {
+    display: inline;
+  }
+  
+  .product-item {
+    width: 18rem;
+  }
+  
+  .product-item p {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .product-item a:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  .tim-kiem {
+    margin-bottom: 15px;
+  }

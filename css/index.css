@@ -1,0 +1,52 @@
+.account{
+    width: 100%;
+    background-color:#f8f9fa;
+    align-items: center;    
+    gap: 2rem;
+}
+.form-inline{
+    align-self: flex-end;
+}
+.helloUser{
+    margin-right: 10px;
+}
+.highlight {
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+}
+.button {
+  background-color: rgb(118, 116, 219);
+  border: none;
+  color: #ffffff;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+}
+.button:before,
+.button:after {
+  border: 0 solid transparent;
+  transition: all 0.25s;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+.button:before {
+  border-top: 2px solid rgb(0, 156, 246);
+  left: 0px;
+  top: -5px;
+}
+.button:after {
+  border-bottom: 2px solid rgb(0, 156, 246);
+  bottom: -5px;
+  right: 0px;
+}
+.button:hover {
+  background-color: rgb(118, 116, 219);
+}
+.button:hover:before,
+.button:hover:after {
+  height: 100%;
+  width: 100%;
+}

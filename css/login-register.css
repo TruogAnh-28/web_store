@@ -1,0 +1,38 @@
+.error-msg {
+  color: red;
+  font-size: .8rem;
+  font-style: italic;
+  height: 20px;
+}
+
+.success-msg {
+  color: green;
+  font-size: 1.2rem;
+  height: 25px;
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.btn-primary {
+  margin-top: .8rem;
+  width: 100%;
+}
+
+/* .login {
+  height: 55vh;
+} */
+
+@media screen and (min-width: 768px) {
+  .register, .login {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .register, .login {
+    width: 30%;
+  }
+}
