@@ -45,7 +45,7 @@ if (isset($_GET["id"])) {
     <div class="table-container">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Quản lý sản phẩm</h2>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                 Thêm sản phẩm
             </button>
         </div>
@@ -87,14 +87,12 @@ if (isset($_GET["id"])) {
     </div>
 
     <!-- Modal Thêm sản phẩm -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Thêm sản phẩm mới</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Thêm sản phẩm mới</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="products.php" autocomplete="off">
@@ -115,7 +113,7 @@ if (isset($_GET["id"])) {
                             <textarea id="productDescription" name="description" class="form-control" placeholder="Mô tả sản phẩm" required></textarea>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
                             <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                         </div>
                     </form>
@@ -124,7 +122,6 @@ if (isset($_GET["id"])) {
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

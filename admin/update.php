@@ -1,7 +1,7 @@
 <?php
   $id = $_GET["id"];
   require_once("services/connect_db.php");
-  $item = mysqli_fetch_array($connect->query("SELECT * from products WHERE id='$id'"));
+  $item = mysqli_fetch_array($connect->query("SELECT * from products WHERE product_id='$id'"));
 ?>
 <?php
   if (isset($_POST['name'])) {
@@ -12,7 +12,7 @@
     require_once("services/connect_db.php");
     // $_POST = null;
     var_dump($_POST);//exit();
-    $updateQuery = "UPDATE products set name='$name',price = $price,image='$image', description='$description' where id='$id'";
+    $updateQuery = "UPDATE products set name='$name',price = $price,image='$image', description='$description' where product_id='$id'";
     $result1 =  mysqli_query($connect, $updateQuery);
     if (!$result1) {
       printf("Error: %s\n", mysqli_error($connect));
