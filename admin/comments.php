@@ -91,7 +91,7 @@
                     <td class="text-center">' . htmlspecialchars($item['date']) . '</td>
                     <td>' . htmlspecialchars($item['content']) . '</td>
                     <td class="text-center">
-                        <a href="?id=' . $item['comment_id'] . '" class="action-btn btn-delete">Xóa</a>
+                        <a href="?id=' . $item['comment_id'] . '" class="btn action-btn btn-delete btn-sm btn-action">Xóa</a>
                     </td>
                 </tr>';
             }

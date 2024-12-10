@@ -71,8 +71,8 @@
                     <td>' . htmlspecialchars($order['order_date']) . '</td>
                     <td>' . htmlspecialchars($order['status']) . '</td>
                     <td class="text-center">
-                        <a href="view_order.php?id=' . $order['order_id'] . '" class="action-btn btn-view">Xem</a>
-                        <a href="delete_order.php?id=' . $order['order_id'] . '" class="action-btn btn-delete">Xóa</a>
+                        <a href="view_order.php?id=' . $order['order_id'] . '" class="action-btn btn-view btn btn-sm">Xem</a>
+                        <a href="delete_order.php?id=' . $order['order_id'] . '" class="action-btn btn-delete btn btn-sm">Xóa</a>
                     </td>
                 </tr>';
             }
