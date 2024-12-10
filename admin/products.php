@@ -73,7 +73,7 @@ if (isset($_GET["id"])) {
                         <td class='text-center'>{$item['product_id']}</td>
                         <td>{$item['name']}</td>
                         <td class='text-center'>{$item['price']}</td>
-                        <td class='text-center'><img src='{$item['image']}' alt='{$item['name']}' style='width: 100px; height: auto;'></td>
+                        <td class='text-center'><img src='/{$item['image']}' alt='{$item['name']}' style='width: 100px; height: auto;'></td>
                         <td>{$item['description']}</td>
                         <td class='text-center'>
                             <a class='btn btn-primary btn-sm btn-action' href='update.php?id={$item['product_id']}'>Cập nhật</a>

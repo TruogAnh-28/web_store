@@ -145,7 +145,7 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-6">
-        <img class="product-image" src="<?php echo $item['image'] ?>" alt="Product Image">
+        <img class="product-image" src="/<?php echo $item['image']; ?>" alt="Product Image">
       </div>
       <div class="col-md-6">
         <div class="product-content">

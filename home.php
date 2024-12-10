@@ -51,7 +51,7 @@
             $page = $_GET['page'];
         }
 
-        $productsPerPage = 2;
+        $productsPerPage = 8;
         $from = ($page - 1) * $productsPerPage;
         $fullProducts = mysqli_query($connect, $query1);
         $totalPages = ceil(mysqli_num_rows($fullProducts) / $productsPerPage);
