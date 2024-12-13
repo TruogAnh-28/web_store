@@ -11,7 +11,7 @@
             $content = $_POST["content"];
             $commentQuery = "insert into comments(user_id,product_id,date,content) values('$user_id',$productid,now(),'$content')";
             mysqli_query($connect, $commentQuery);
-            echo"<script>alert('Your comment will appear soon') </script>";
+            echo"<script>alert('Đánh giá của bạn đã được gửi') </script>";
         }
     }
 ?>
@@ -30,7 +30,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>Chi tiết sản phẩm</title>
   <style>
@@ -153,36 +153,28 @@
           <p class="content-price"><?php echo number_format($item['price']) . ' VND' ?></p>
           <div class="content-size mb-3">
             <p><strong>Kích Thước:</strong></p>
-            <form class="d-flex flex-wrap">
-              <label class="me-2">
-                <input type="radio" name="size" value="S"> S
-              </label>
-              <label class="me-2">
-                <input type="radio" name="size" value="M"> M
-              </label>
-              <label class="me-2">
-                <input type="radio" name="size" value="L"> L
-              </label>
-              <label class="me-2">
-                <input type="radio" name="size" value="XL"> XL
-              </label>
-              <label>
-                <input type="radio" name="size" value="XXL"> XXL
-              </label>
-            </form>
-          </div>
-          <!-- <div class="content-quantity mb-3">
-            <p><strong>Số Lượng:</strong> <span id="quantity">1</span></p>
-            <div class="quantity-selector">
-              <button class="btn btn-outline-primary" onclick="increment()">+</button>
-              <button class="btn btn-outline-secondary" onclick="decrement()">-</button>
-            </div>
-          </div> -->
-          
-          <form method="POST" action="/cart.php?action=add">
-            <?php echo '<input id="demoInput" type="number" min=0 max=100 value="1" name="quantity[' . $item['product_id'] . ']" class="form-control mb-2">'; ?>
-            <input class="btn btn-danger buy-btn" type="submit" value="Mua sản phẩm">
+            <form method="POST" action="/cart.php?action=add">
+              <div class="d-flex flex-wrap mb-2">
+                  <label class="me-2 px-2">
+                      <input type="radio" name="size[<?php echo $item['product_id']; ?>]" value="S" required> S
+                  </label>
+                  <label class="me-2 px-2">
+                      <input type="radio" name="size[<?php echo $item['product_id']; ?>]" value="M" required> M
+                  </label>
+                  <label class="me-2 px-2">
+                      <input type="radio" name="size[<?php echo $item['product_id']; ?>]" value="L" required> L
+                  </label>
+                  <label class="me-2 px-2">
+                      <input type="radio" name="size[<?php echo $item['product_id']; ?>]" value="XL" required> XL
+                  </label>
+                  <label class="me-2 px-2">
+                      <input type="radio" name="size[<?php echo $item['product_id']; ?>]" value="XXL" required> XXL
+                  </label>
+              </div>
+              <input id="demoInput" type="number" min="0" max="100" value="1" name="quantity[<?php echo $item['product_id']; ?>]" class="form-control mb-2">
+              <input class="btn btn-danger buy-btn" type="submit" value="Mua sản phẩm">
           </form>
+
           <div class="mt-4">
             <h4>Giới thiệu sản phẩm:</h4>
             <p><?php echo $item['description'] ?></p>
@@ -250,6 +242,7 @@
             </form>
         </section>
     <?php } ?>
+    
 </div>
 
 

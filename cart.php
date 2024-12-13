@@ -15,17 +15,21 @@ if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case "add":
             foreach ($_POST['quantity'] as $id => $quantity) {
-                if (isset($_SESSION["cart"][$id])) {
-                    // Ensure we're using a numeric value
-                    $_SESSION["cart"][$id] = is_array($_SESSION["cart"][$id]) 
-                        ? $quantity 
-                        : (int)$_SESSION["cart"][$id] + $quantity;
+                $size = isset($_POST['size'][$id]) ? $_POST['size'][$id] : 'M'; // Default size if not set
+                
+                // Check if the product already exists in the cart
+                if (isset($_SESSION["cart"][$id]) && is_array($_SESSION["cart"][$id])) {
+                    $_SESSION["cart"][$id]['quantity'] += $quantity; // Increment quantity
+                    $_SESSION["cart"][$id]['size'] = $size; 
                 } else {
-                    $_SESSION["cart"][$id] = $quantity;
+                    $_SESSION["cart"][$id] = [
+                        'quantity' => $quantity,
+                        'size' => $size
+                    ];
                 }
             }
             break;
-
+        
         case "delete":
             if (isset($_GET['id'])) {
                 unset($_SESSION["cart"][$_GET['id']]);
@@ -110,10 +114,10 @@ if (isset($_GET['action'])) {
                 $subtotal = $quantity * $row['price'];
 
                 // Return both subtotal and total as JSON
-                echo json_encode([
-                    "subtotal" => $subtotal, 
-                    "total" => $totalMoney
-                ]);
+                // echo json_encode([
+                //     "subtotal" => $subtotal, 
+                //     "total" => $totalMoney
+                // ]);
                 exit();
             }
             break;
@@ -154,7 +158,7 @@ if (!empty($data)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="css/footer.css">
     <style>
         .cart-container {
@@ -285,7 +289,7 @@ if (!empty($data)) {
         </form>
     </div>
 
-    <?php echo number_format($totalMoney);
+    <?php
      include 'layout/footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
